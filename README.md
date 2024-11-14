@@ -17,3 +17,6 @@ De todas formar al ejecutar el script con "sh yt.sh" o "sh yt-mint" dependiendo 
 se instalan automaticamente las dependencias, solo debes dar "si" cuando te pregunte
 
 El resto es super facil de usar. De nada!
+
+
+**yt-en is an english version of the script ;)**
