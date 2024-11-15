@@ -8,12 +8,12 @@ echo "************************************"
 echo "* DESCARGUE LA PLAYLIST QUE QUIERA:*"
 echo "************************************"
 
-desktop_path="$HOME/YTPlaylist"
+desktop_path="$HOME/YT"
 
 # Crear la carpeta "YT" en el escritorio si no existe
-yt_folder="$desktop_path/YT"
+yt_folder="$desktop_path/Playlist"
 if [ ! -d "$yt_folder" ]; then
-    echo "Creando la carpeta 'YTPlaylist' en el usuario..."
+    echo "Creando la carpeta 'YT/Playlist' en el usuario..."
     mkdir -p "$yt_folder"
 else
     echo ""

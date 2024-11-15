@@ -3,11 +3,11 @@
 
 clear
 
-desktop_path="$HOME/YTVideos"
+desktop_path="$HOME/YT"
 
-yt_folder="$desktop_path/YT"
+yt_folder="$desktop_path/Videos"
 if [ ! -d "$yt_folder" ]; then
-    echo "Making folder 'YTVideos' on user's folder..."
+    echo "Making folder 'YT/Videos' on user's folder..."
     mkdir -p "$yt_folder"
 else
     echo ""

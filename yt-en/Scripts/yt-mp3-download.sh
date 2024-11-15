@@ -8,12 +8,12 @@ echo "************************************"
 echo "*  DOWNLOAD THE MUSIC YOU WANT   : *"
 echo "************************************"
 
-desktop_path="$HOME/YTMusic"
+desktop_path="$HOME/YT"
 
 # Crear la carpeta "YT" en el escritorio si no existe
-yt_folder="$desktop_path/YT"
+yt_folder="$desktop_path/Music"
 if [ ! -d "$yt_folder" ]; then
-    echo "Making 'YTMusic' folder on user's folder..."
+    echo "Making 'YT/Music' folder on user's folder..."
     mkdir -p "$yt_folder"
 else
     echo ""
