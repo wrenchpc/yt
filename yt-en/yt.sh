@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script creado por wr3nch
+# Script created by wr3nch
 
 clear
 

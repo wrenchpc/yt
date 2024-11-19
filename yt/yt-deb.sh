@@ -35,7 +35,7 @@ confirm_install() {
     if [[ "$confirm" == "si" ]]; then
 
 	sudo apt install snap -y        
-        sudo apt install mpv -y
+       	sudo apt install mpv -y
 	sudo snap install yt-dlp -y
         sudo apt install python -y
         sudo apt install python-pip -y
@@ -82,7 +82,7 @@ case $option in
 	exit
 	;;
     *)
-        ./yt-mint.sh
+        ./yt-deb.sh
         ;;
 esac
 

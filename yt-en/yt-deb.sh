@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script creado por wr3nch
+# Script created by wr3nch
 
 clear
 
@@ -82,7 +82,7 @@ case $option in
 	exit
 	;;
     *)
-        ./yt-mint.sh
+        ./yt-deb.sh
 	;;
 esac
 
