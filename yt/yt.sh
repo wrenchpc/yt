@@ -56,6 +56,7 @@ echo "1) Escuchar música (1)"
 echo "2) Descargar música (2)"
 echo "3) Descargar playlist (3)"
 echo "4) Descargar video (4)"
+echo "5) SALIR (5)"
 
 read -p "Ingrese el número (1-4): " option
 
@@ -76,8 +77,11 @@ case $option in
         echo "Ejecutando Script 4..."
         sh Scripts/ytvideod.sh
         ;;
+    5)
+	exit
+	;;
     *)
-        echo "Opción no válida. Por favor, ingrese un número entre 1 y 4."
-        ;;
+        ./yt.sh
+	;;
 esac
 

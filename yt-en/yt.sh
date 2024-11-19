@@ -56,6 +56,7 @@ echo "1) Listen to Music (1)"
 echo "2) Download Music (2)"
 echo "3) Download a Playlist (3)"
 echo "4) Download a Video (4)"
+echo "5) EXIT (5)"
 
 read -p "Set number (1-4): " option
 
@@ -76,8 +77,11 @@ case $option in
         echo "Executing Script 4..."
         sh Scripts/ytvideod.sh
         ;;
+    5)
+	exit
+	;;
     *)
-        echo "Invalid option. Please, set a number from 1 to 4 and press ENTER."
-        ;;
+        ./yt.sh
+	;;
 esac
 
