@@ -3,7 +3,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-REPO_URL="https://github.com/Wworn/yt.git"
+REPO_URL="https://github.com/wrenchpc/yt.git"
 
 TARGET_FOLDER="yt"
 
