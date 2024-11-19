@@ -4,7 +4,7 @@ Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpet
 
 El archivo yt.sh es para las distribuciones basadas en arch
 
-El yt-deb.sh es para distribuciones basadas en debian cómo linux mint
+El yt-deb.sh es para distribuciones basadas en debian.
 
 Estas son las dependencias:
 
