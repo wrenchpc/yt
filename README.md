@@ -22,6 +22,6 @@ sudo apt update
 sudo apt install snapd
 sudo snap install yt-dlp
 
-Only if you haven't enabled the snap packages.
+Only if you haven't enabled the snap packages on Linux Mint.
 
 
