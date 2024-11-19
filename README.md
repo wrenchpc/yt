@@ -8,7 +8,7 @@ El yt-deb.sh es para distribuciones basadas en debian.
 
 Estas son las dependencias:
 
-snap, yt-dlp, mpv, python
+snap (debian's only), yt-dlp, mpv, python
 
 El resto es super facil de usar. De nada!
 
