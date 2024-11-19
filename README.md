@@ -16,3 +16,12 @@ El resto es super facil de usar. De nada!
 (si ya tenías previamente instalado yt-dlp con apt por favor remuevalo con 'sudo apt purge yt-dlp' e instalelo con apt o simplemente ejecute directamente el script de yt.sh o yt-deb.sh)
 
 **yt-en is an english version of the script ;)**
+
+sudo rm /etc/apt/preferences.d/nosnap.pref
+sudo apt update
+sudo apt install snapd
+sudo snap install yt-dlp
+
+Only if you haven't enabled the snap packages.
+
+
