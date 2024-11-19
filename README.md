@@ -8,16 +8,14 @@ El yt-mint.sh es para distribuciones basadas en debian cómo linux mint
 
 Estas son las dependencias:
 
-yt-dlp
+snap, yt-dlp, mpv, python
 
-mpv
-
-python
-
+(Se necesita de snap para instalar la dependencia de yt-dlp debido a que la original de debian "apt" está muy desactualizada y produce fallos en el script)
 De todas formar al ejecutar el script con "sh yt.sh" o "sh yt-mint" dependiendo de tu distro
 se instalan automaticamente las dependencias, solo debes dar "si" cuando te pregunte
 
 El resto es super facil de usar. De nada!
 
+(Se necesita de snap para instalar la dependencia de yt-dlp debido a que la original de debian "apt" está muy desactualizada y produce fallos en el script)
 
 **yt-en is an english version of the script ;)**
