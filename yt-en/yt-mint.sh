@@ -58,7 +58,7 @@ echo "3) Download Playlist (3)"
 echo "4) Download Video (4)"
 echo "5) EXIT (5)"
 
-read -p "Set a number (1-4): " option
+read -p "Set a number (1-5): " option
 
 case $option in
     1)

@@ -58,7 +58,7 @@ echo "3) Descargar playlist (3)"
 echo "4) Descargar video (4)"
 echo "5) SALIR (5)"
 
-read -p "Ingrese el número (1-4): " option
+read -p "Ingrese el número (1-5): " option
 
 case $option in
     1)
