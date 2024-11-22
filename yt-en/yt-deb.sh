@@ -57,9 +57,10 @@ echo "1) Listen to Music (1)"
 echo "2) Download Music (2)"
 echo "3) Download Playlist (3)"
 echo "4) Download Video (4)"
-echo "5) EXIT (5)"
+echo "5) Update YT.SH (5)"
+echo "6) EXIT (6)"
 
-read -p "Set a number (1-5): " option
+read -p "Set a number (1-6): " option
 
 case $option in
     1)
@@ -78,7 +79,10 @@ case $option in
         echo "Executing Script 4..."
         sh Scripts/ytvideod.sh
         ;;
-    5) 
+    5)
+	sh update.sh
+	;;
+    6) 
 	exit
 	;;
     *)

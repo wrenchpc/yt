@@ -1,14 +1,14 @@
-# yt.sh
+# ytmusic
 Una simple combinación de scrips que permiten descargar y escuchar música de Youtube además de descargar videos
-Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT "/home/user/YT"
+Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT
 
 El archivo yt.sh es para las distribuciones basadas en arch
 
-El yt-deb.sh es para distribuciones basadas en debian.
+El yt-deb.sh es para distribuciones basadas en debian cómo linux mint
 
 Estas son las dependencias:
 
-snap (debian's only), yt-dlp, mpv, python
+snap, yt-dlp, mpv, python
 
 El resto es super facil de usar. De nada!
 
@@ -22,6 +22,6 @@ sudo apt update
 sudo apt install snapd
 sudo snap install yt-dlp
 
-Only if you haven't enabled the snap packages on Linux Mint.
+Only if you haven't enabled the snap packages.
 
 
