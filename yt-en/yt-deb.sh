@@ -34,11 +34,9 @@ confirm_install() {
     read -p "Write 'yes' to install: " confirm
     if [[ "$confirm" == "yes" ]]; then
 
-	sudo apt install snap -y        
-        sudo apt install mpv -y
-        sudo snap install yt-dlp -y
-	sudo apt install python -y
-        sudo apt install python-pip -y
+	sudo apt install snap --yes     
+        sudo snap install mpv --yes
+        sudo snap install yt-dlp --yes
 
     else
         echo "The instalation was canceled."
