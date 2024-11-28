@@ -13,7 +13,7 @@ snap, yt-dlp, mpv, python
 El resto es super facil de usar. De nada!
 
 (Se necesita de snap para instalar la dependencia de yt-dlp debido a que la original de debian "apt" está muy desactualizada y produce fallos en el script)
-(si ya tenías previamente instalado yt-dlp con apt por favor remuevalo con 'sudo apt purge yt-dlp' e instalelo con apt o simplemente ejecute directamente el script de yt.sh o yt-deb.sh)
+(si ya tenías previamente instalado yt-dlp con apt por favor remuevalo con 'sudo apt purge yt-dlp' e instalelo con snap o simplemente ejecute directamente el script de yt.sh o yt-deb.sh)
 
 
 Para usar en Windows usas wsl desde la Powershell y ejecutas el script yt-deb.sh
