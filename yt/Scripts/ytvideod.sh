@@ -26,4 +26,4 @@ yt-dlp -f "${video_format_id}+bestaudio" -o "$yt_folder/%(title)s.%(ext)s" "$vid
 echo "¡Descarga completada!"
 
 clear
-./yt.sh
+sh yt.sh

@@ -29,4 +29,4 @@ yt-dlp -x --audio-format mp3 -o "$yt_folder/%(playlist_index)s-%(title)s.%(ext)s
 echo "¡Descarga completada!"
 
 clear
-./yt.sh
+sh yt.sh

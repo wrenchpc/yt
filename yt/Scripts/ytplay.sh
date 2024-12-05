@@ -14,4 +14,4 @@ search_query=$(echo "$search_query" | sed 's/ /+/g')
 
 yt-dlp "ytsearch:$search_query" --no-playlist -f bestaudio -o - | mpv --no-video -
 
-./yt.sh
+sh yt.sh

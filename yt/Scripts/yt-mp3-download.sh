@@ -26,4 +26,4 @@ search_query=$(echo "$search_query" | sed 's/ /+/g')
 echo "Buscando y descargando el mejor audio en formato MP3..."
 yt-dlp -x --audio-format mp3 "ytsearch:$search_query" --no-playlist -f bestaudio -o "$yt_folder/%(title)s.%(ext)s"
 clear
-./yt.sh
+sh yt.sh
