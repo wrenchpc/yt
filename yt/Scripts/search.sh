@@ -1,5 +1,12 @@
 #!/bin/bash
 # Hecho por wr3nch
+if ! command -v yt-dlp &> /dev/null; then
+    echo "Error: yt-dlp no está instalado. Instálalo e intenta de nuevo."
+    exit 1
+fi
+#!/bin/bash
+
+# Arte ASCII personalizado
 cat << "EOF"
 __   _______ ____  _   _
 \ \ / /_   _/ ___|| | | |
@@ -20,8 +27,8 @@ awk 'NR % 2 == 1 { printf "%d. %s\n", (NR + 1) / 2, $0 }' results.txt
 
 read -p "Selecciona un número (1-10): " choice
 
-if ! [[ "$choice" =~ ^[1-9]$|^10$ ]]; then
-    echo "Opción inválida. Saliendo..."
+if ! echo "$choice" | grep -Eq '^[1-9]$|^10$'; then
+    echo "Opción invalida. Saliendo..."
     rm results.txt
     exit 1
 fi

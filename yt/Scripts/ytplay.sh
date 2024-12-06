@@ -1,6 +1,15 @@
 #!/bin/bash
 # Script creado por wr3nch
 clear
+if ! command -v yt-dlp &> /dev/null; then
+    echo "Error: yt-dlp no está instalado. Instálalo e intenta de nuevo."
+    exit 1
+fi
+
+if ! command -v mpv &> /dev/null; then
+    echo "Error: mpv no está instalado. Instálalo e intenta de nuevo."
+    exit 1
+fi
 
 read -p "Introduce el término de búsqueda (canción, artista, etc.): " search_term
 
@@ -12,8 +21,8 @@ awk 'NR % 2 == 1 { printf "%d. %s\n", (NR + 1) / 2, $0 }' results.txt
 
 read -p "Selecciona un número (1-10): " choice
 
-if ! [[ "$choice" =~ ^[1-9]$|^10$ ]]; then
-    echo "Opción inválida. Saliendo..."
+if ! echo "$choice" | grep -Eq '^[1-9]$|^10$'; then
+    echo "Opción invalida. Saliendo..."
     rm results.txt
     exit 1
 fi
