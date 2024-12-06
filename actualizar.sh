@@ -22,13 +22,13 @@ echo "$TARGET_FOLDER" >> .git/info/sparse-checkout
 git pull origin main
 
 if [ $? -eq 0 ]; then
-    echo "Folder '$TARGET_FOLDER' cloned successfully."
+    echo "Carpeta '$TARGET_FOLDER' actualizada."
 
     cp -r "$TEMP_DIR/$TARGET_FOLDER"/* "$SCRIPT_DIR"
 
-    echo "Files updated on the script folder."
+    echo "Archivos actualizados."
 else
-    echo "Error for cloning the folders."
+    echo "Error al clonar."
     exit 1
 fi
 
