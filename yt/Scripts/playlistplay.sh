@@ -30,3 +30,5 @@ esac
 
 yt-dlp -f bestaudio --get-url "$PLAYLIST_URL" | xargs -I {} mpv --no-video {}
 
+clear
+sh yt.sh

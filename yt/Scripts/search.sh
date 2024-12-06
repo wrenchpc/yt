@@ -1,17 +1,23 @@
 #!/bin/bash
-# Script creado por wr3nch
-clear
+# Hecho por wr3nch
 if ! command -v yt-dlp &> /dev/null; then
     echo "Error: yt-dlp no está instalado. Instálalo e intenta de nuevo."
     exit 1
 fi
+#!/bin/bash
 
-if ! command -v mpv &> /dev/null; then
-    echo "Error: mpv no está instalado. Instálalo e intenta de nuevo."
-    exit 1
-fi
+# Arte ASCII personalizado
+cat << "EOF"
+__   _______ ____  _   _
+\ \ / /_   _/ ___|| | | |
+ \ V /  | | \___ \| |_| |
+  | |   | |_ ___) |  _  |
+  |_|   |_(_)____/|_| |_|
 
-read -p "Introduce el término de búsqueda (canción, artista, etc.): " search_term
+
+EOF
+
+read -p "     Búsqueda: " search_term
 
 echo "Buscando en YouTube..."
 yt-dlp "ytsearch10:$search_term" --get-title --get-id > results.txt
@@ -27,13 +33,11 @@ if ! [[ "$choice" =~ ^[1-9]$|^10$ ]]; then
     exit 1
 fi
 
-audio_id=$(awk "NR == $((choice * 2)) { print }" results.txt)
+video_id=$(awk "NR == $((choice * 2)) { print }" results.txt)
 
 rm results.txt
 
-audio_url="https://www.youtube.com/watch?v=$audio_id"
-echo "Reproduciendo solo el audio..."
-yt-dlp -f "bestaudio" -o - "$audio_url" | mpv --no-video -
-
-clear
-sh yt.sh
+video_url="https://www.youtube.com/watch?v=$video_id"
+echo "Enlace del video seleccionado: $video_url"
+echo "Presiona "ENTER" para finalizar."
+read

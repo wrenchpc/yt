@@ -52,26 +52,33 @@ fi
 clear
 
 echo "Seleccione la opción:"
-echo "1) Música"
-echo "2) Video"
-echo "3) Actualizar YT.SH"
-echo "4) SALIR"
+
+echo "1) Buscar una URL"
+echo "2) Música"
+echo "3) Video"
+echo "4) Actualizar YT.SH"
+echo "5) SALIR"
 
 read -p "Ingrese el número (1-4): " option
 
 case $option in
+    
     1)
-        echo "Ejecutando Script 1..."
-        sh Scripts/music.sh
+        clear
+	sh Scripts/search.sh
         ;;
     2)
-        echo "Ejecutando Script 2..."
-        sh Scripts/video.sh
+        clear
+	sh Scripts/music.sh
         ;;
     3)
+        clear
+	sh Scripts/video.sh
+        ;;
+    4)
 	sh actualizar.sh
 	;;
-    4)
+    5)
 	exit
 	;;
     *)
