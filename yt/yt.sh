@@ -98,4 +98,8 @@ case $option in
         sh yt.sh
 	;;
 esac
-read ""
+while true; do
+    sh yt.sh
+    read -r
+done
+
