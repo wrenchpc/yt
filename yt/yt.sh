@@ -33,18 +33,25 @@ confirm_install() {
     echo "************************************"
     read -p "Escriba 'si' para instalar: " confirm
     if [[ "$confirm" == "si" ]]; then
-        
+
+	#archbtw
         sudo pacman -S mpv --noconfirm
         sudo pacman -S yt-dlp --noconfirm
         sudo pacman -S python --noconfirm
         sudo pacman -S python-pip --noconfirm  
 
-
+	#debian
 	sudo apt update
         sudo apt install snap --yes
         sudo snap install mpv
         sudo snap install yt-dlp
 
+	#termux
+	pkg update
+        pkg install mpv -y
+        pkg install python -y
+        pkg install python-pip -y
+	pip install -U yt-dlp
     else
         echo "La instalación fue cancelada."
         exit 1
