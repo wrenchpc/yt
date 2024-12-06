@@ -72,7 +72,7 @@ echo "3) Video"
 echo "4) Actualizar YT.SH"
 echo "5) SALIR"
 
-read -p "Ingrese el número (1-4): " option
+read -p "Ingrese el número (1-5): " option
 
 case $option in
     
@@ -98,4 +98,4 @@ case $option in
         sh yt.sh
 	;;
 esac
-
+read ""
