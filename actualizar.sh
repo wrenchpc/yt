@@ -1,5 +1,5 @@
 #!/bin/bash
-# Actualiza automaticamente desde el repositorio de github
+# Automatically updates the github repository
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -22,26 +22,21 @@ echo "$TARGET_FOLDER" >> .git/info/sparse-checkout
 git pull origin main
 
 if [ $? -eq 0 ]; then
-    echo "Carpeta '$TARGET_FOLDER' clonada correctamente."
+    echo "Folder '$TARGET_FOLDER' cloned successfully."
 
     cp -r "$TEMP_DIR/$TARGET_FOLDER"/* "$SCRIPT_DIR"
 
-    echo "Archivos actualizados en la carpeta del script."
+    echo "Files updated on the script folder."
 else
-    echo "Error al clonar la carpeta."
+    echo "Error for cloning the folders."
     exit 1
 fi
 
 rm -rf "$TEMP_DIR"
-
-( cd "$PWD" 2>/dev/null )
-
-echo "Ejecutando el script..."
-
-if [[ -f "yt.sh" ]]; then
-    ./yt.sh
-else
-    echo "No se encontró el archivo yt.sh"
-fi
-
 clear
+
+cat << "EOF"
+
+Actualizado Exitosamente
+
+EOF
