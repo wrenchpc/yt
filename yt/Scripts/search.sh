@@ -34,3 +34,5 @@ video_url="https://www.youtube.com/watch?v=$video_id"
 echo "Enlace del video seleccionado: $video_url"
 echo "Presiona "ENTER" para finalizar."
 read -r
+clear
+sh yt.sh
