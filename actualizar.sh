@@ -45,5 +45,3 @@ else
 fi
 
 clear
-
-sh yt.sh
