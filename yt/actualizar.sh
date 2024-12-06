@@ -34,4 +34,3 @@ fi
 
 rm -rf "$TEMP_DIR"
 clear
-sh yt.sh
