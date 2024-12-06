@@ -47,7 +47,7 @@ confirm_install() {
         sudo snap install yt-dlp
 
 	#termux
-	pkg install mpv python python-pip
+	pkg install mpv python python-pip --yes
  	pip install -U yt-dlp
 	
     else
