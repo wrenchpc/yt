@@ -6,9 +6,8 @@ echo "¿Que te gustaría hacer?:"
 echo "1) Mirar video"
 echo "2) Descargar video"
 echo "3) Cortar y descargar video"
-echo "4) Volver"
 
-read -p "Elige una opción (1 o 2): " choice
+read -p "Elige una opción (1 o 3): " choice
 
 case $choice in
 
@@ -21,9 +20,6 @@ case $choice in
     3)
         sh Scripts/cutvid.sh
         ;;
-    4)
-	sh yt.sh
-	;;
     *)
         echo "Opción inválida. Saliendo..."
         exit 1
