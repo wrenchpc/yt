@@ -32,8 +32,3 @@ rm results.txt
 
 video_url="https://www.youtube.com/watch?v=$video_id"
 echo "Enlace del video seleccionado: $video_url"
-for i in $(seq 1 -1 0); do echo -ne "\r$i"; sleep 1; done; echo
-echo "Presiona "ENTER" para finalizar."
-read -r
-clear
-./yt.sh
