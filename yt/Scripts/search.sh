@@ -1,12 +1,5 @@
 #!/bin/bash
 # Hecho por wr3nch
-if ! command -v yt-dlp &> /dev/null; then
-    echo "Error: yt-dlp no está instalado. Instálalo e intenta de nuevo."
-    exit 1
-fi
-#!/bin/bash
-
-# Arte ASCII personalizado
 cat << "EOF"
 __   _______ ____  _   _
 \ \ / /_   _/ ___|| | | |
