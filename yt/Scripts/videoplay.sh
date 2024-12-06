@@ -1,15 +1,6 @@
 #!/bin/bash
 # Hecho por wr3nch
 clear
-if ! command -v yt-dlp &> /dev/null; then
-    echo "Error: yt-dlp no está instalado. Instálalo e intenta de nuevo."
-    exit 1
-fi
-
-if ! command -v mpv &> /dev/null; then
-    echo "Error: mpv no está instalado. Instálalo e intenta de nuevo."
-    exit 1
-fi
 
 read -p "Introduce el término de búsqueda: " search_term
 
