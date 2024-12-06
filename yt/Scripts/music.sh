@@ -5,12 +5,11 @@ clear
 echo "¿Que te gustaría hacer?:"
 echo "1) Escuchar música"
 echo "2) Escuchar música descargada"
-echo "3) Escuchas playlist descargada"
-echo "4) Descargar música"
-echo "5) Escuchar una playlist"
-echo "6) Descargar una playlist"
+echo "3) Descargar música"
+echo "4) Escuchar una playlist"
+echo "5) Descargar una playlist"
 
-read -p "Elige una opción (1 o 6): " choice
+read -p "Elige una opción (1 o 5): " choice
 
 case $choice in
     1)
@@ -20,17 +19,13 @@ case $choice in
     2)
         sh Scripts/musicplaylocal.sh
         ;;
-
     3)
-        sh Scripts/musicplaylistlocal.sh
-        ;;
-    4)
         sh Scripts/yt-mp3-download.sh
         ;;
-    5)
+    4)
         sh Scripts/playlistplay.sh
         ;;
-    6)
+    5)
         sh Scripts/yt-playlist.sh
         ;;
     *)
