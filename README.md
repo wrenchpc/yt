@@ -2,6 +2,9 @@
 Una simple combinación de scrips que permiten descargar y escuchar música de Youtube además de descargar videos
 Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT
 
+Asegurate de antes de ejecutar cualquier cosa pon el siguente comando
+chmod +x yt.sh
+
 El archivo yt.sh es para las distribuciones basadas en arch
 
 El yt-deb.sh es para distribuciones basadas en debian cómo linux mint
