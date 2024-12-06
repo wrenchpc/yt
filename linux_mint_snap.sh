@@ -3,3 +3,4 @@ sudo apt update
 sudo apt install snapd
 sudo snap install yt-dlp
 echo "LINUX MINT COMPLETED"
+sh yt/yt.sh
