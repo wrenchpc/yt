@@ -39,6 +39,12 @@ confirm_install() {
         sudo pacman -S python --noconfirm
         sudo pacman -S python-pip --noconfirm  
 
+
+	sudo apt update
+        sudo apt install snap --yes
+        sudo snap install mpv
+        sudo snap install yt-dlp
+
     else
         echo "La instalación fue cancelada."
         exit 1
