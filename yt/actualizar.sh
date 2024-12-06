@@ -33,15 +33,5 @@ else
 fi
 
 rm -rf "$TEMP_DIR"
-
-( cd "$PWD" 2>/dev/null )
-
-echo "Ejecutando el script..."
-
-if [[ -f "yt.sh" ]]; then
-    sh yt.sh
-else
-    echo "No se encontró el archivo yt.sh"
-fi
-
 clear
+sh yt.sh
