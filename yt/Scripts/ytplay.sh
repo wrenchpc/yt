@@ -6,7 +6,7 @@ read -p "Introduce el término de búsqueda (canción, artista, etc.): " search_
 
 echo "Buscando en YouTube..."
 yt-dlp "ytsearch10:$search_term" --get-title --get-id > results.txt
-
+clear
 echo "Resultados encontrados:"
 awk 'NR % 2 == 1 { printf "%d. %s\n", (NR + 1) / 2, $0 }' results.txt
 
