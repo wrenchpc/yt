@@ -40,7 +40,8 @@ confirm_install() {
         sudo pacman -S python --noconfirm
         sudo pacman -S python-pip --noconfirm
 	sudo pacman -S openssh --noconfirm
-
+	sudo pacman -S ffmpeg --noconfirm
+ 
 	#debian
 	sudo apt update
  	sudo apt install python3 --yes
@@ -48,9 +49,10 @@ confirm_install() {
         sudo snap install mpv
         sudo snap install yt-dlp
 	sudo apt install openssh-server --yes
+ 	sudo apt install ffmpeg --yes
 
 	#termux
-	pkg install mpv python python-pip openssh --yes
+	pkg install mpv python python-pip openssh ffmpeg --yes
  	pip install -U yt-dlp
 	
     else
