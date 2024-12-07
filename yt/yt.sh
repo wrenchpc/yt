@@ -42,6 +42,7 @@ confirm_install() {
 
 	#debian
 	sudo apt update
+ 	sudo apt install python3 --yes
         sudo apt install snap --yes
         sudo snap install mpv
         sudo snap install yt-dlp
