@@ -10,3 +10,4 @@ snap, yt-dlp, mpv, python, openssh
 
 El resto es super facil de usar. De nada!
 
+![photo_2024-12-07_19-49-34](https://github.com/user-attachments/assets/8d8a633d-6fc6-45bc-8afb-5fed5760a2f4)
