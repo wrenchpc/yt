@@ -3,7 +3,7 @@ Una simple combinación de scrips que permiten descargar y escuchar música de Y
 Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT
 
 Asegurate de antes de ejecutar cualquier cosa pon el siguente comando
-chmod +x yt.sh
+chmod +x yt.sh y para ejecutarlo ./yt.sh
 Estas son las dependencias:
 
 snap, yt-dlp, mpv, python, openssh
