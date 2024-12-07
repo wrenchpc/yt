@@ -67,10 +67,11 @@ echo "Seleccione la opción:"
 echo "1) Buscar una URL"
 echo "2) Música"
 echo "3) Video"
-echo "4) Actualizar YT.SH"
-echo "5) SALIR"
+echo "4) Compartir"
+echo "5) Actualizar YT.SH"
+echo "6) SALIR"
 
-read -p "Ingrese el número (1-5): " option
+read -p "Ingrese el número (1-6): " option
 
 case $option in
     
@@ -87,9 +88,12 @@ case $option in
 	sh Scripts/video.sh
         ;;
     4)
-	sh actualizar.sh
+	sh Scripts/ssh.sh
 	;;
     5)
+	sh actualizar.sh
+	;;
+    6)
 	exit
 	;;
     *)
