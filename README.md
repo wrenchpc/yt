@@ -6,6 +6,8 @@ Asegurate de antes de ejecutar cualquier cosa pon el siguente comando
 chmod +x yt.sh y para ejecutarlo ./yt.sh
 Estas son las dependencias:
 
+
+las dependencias deberían instalarse solas al decir que "si"
 snap, yt-dlp, mpv, python, openssh, ffmpeg
 
 El resto es super facil de usar. De nada!
