@@ -82,7 +82,7 @@ mostrar_videos() {
                 return
             fi
             
-            echo "Resoluciones disponibles (solo mp4):"
+            echo "Resoluciones disponibles:"
             i=1
             resolucion_ids=()
             resolucion_options=()
