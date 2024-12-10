@@ -3,7 +3,11 @@ Una simple combinación de scrips que permiten descargar y escuchar música de Y
 Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT
 
 cd yt/yt
+
+
 chmod +x yt.sh
+
+
 ./yt.sh
 
 Estas son las dependencias:
