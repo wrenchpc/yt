@@ -12,6 +12,6 @@ chmod +x yt.sh
 
 Estas son las dependencias:
 
-snap, yt-dlp, mpv, python, ffmpeg
+snap, yt-dlp, mpv, python, ffmpeg, jq
 
 El resto es super facil de usar. De nada!
