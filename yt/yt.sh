@@ -40,8 +40,7 @@ confirm_install() {
         sudo pacman -S python --noconfirm
         sudo pacman -S python-pip --noconfirm
 	sudo pacman -S openssh --noconfirm
-	sudo pacman -S ffmpeg --noconfirm
- 
+
 	#debian
 	sudo apt update
  	sudo apt install python3 --yes
@@ -49,10 +48,9 @@ confirm_install() {
         sudo snap install mpv
         sudo snap install yt-dlp
 	sudo apt install openssh-server --yes
- 	sudo apt install ffmpeg --yes
 
 	#termux
-	pkg install mpv python python-pip openssh ffmpeg --yes
+	pkg install mpv python python-pip openssh --yes
  	pip install -U yt-dlp
 	
     else
@@ -70,13 +68,14 @@ clear
 echo "Seleccione la opción:"
 
 echo "1) Buscar una URL"
-echo "2) Música"
-echo "3) Video"
-echo "4) Compartir"
-echo "5) Actualizar YT.SH"
-echo "6) SALIR"
+echo "2) Suscripciones"
+echo "3) Música"
+echo "4) Video"
+echo "5) Compartir"
+echo "6) Actualizar YT.SH"
+echo "7) SALIR"
 
-read -p "Ingrese el número (1-6): " option
+read -p "Ingrese el número (1-7): " option
 
 case $option in
     
@@ -84,21 +83,26 @@ case $option in
         clear
 	sh Scripts/search.sh
         ;;
+
     2)
         clear
-	sh Scripts/music.sh
+	sh Scripts/suscr.sh
         ;;
     3)
         clear
-	sh Scripts/video.sh
+	sh Scripts/music.sh
         ;;
     4)
+        clear
+	sh Scripts/video.sh
+        ;;
+    5)
 	sh Scripts/ssh.sh
 	;;
-    5)
+    6)
 	sh actualizar.sh
 	;;
-    6)
+    7)
 	exit
 	;;
     *)
