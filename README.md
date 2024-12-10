@@ -1,5 +1,5 @@
 # ytmusic
-Una simple combinación de scrips que permiten descargar y escuchar música de Youtube además de descargar videos
+Una simple combinación de scripts que permiten descargar y escuchar música de Youtube además de descargar videos
 Lo que vayas a descargar se va a guardar en la carpeta del usuario en una carpeta llamada YT
 
 cd yt/yt
