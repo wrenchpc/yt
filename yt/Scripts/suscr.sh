@@ -10,6 +10,7 @@ fi
 
 mostrar_suscripciones() {
     if [ -s "$SUBSCRIPTIONS_FILE" ]; then
+	clear
         echo "Suscripciones guardadas:"
         nl "$SUBSCRIPTIONS_FILE" | sort -k2 | cut -d: -f2
         echo "Selecciona un canal para ver sus videos:"
@@ -150,8 +151,9 @@ suscribirse_a_canal() {
 # Menú principal
 clear
 echo "Bienvenido al gestor de suscripciones de YouTube"
-echo "1. Suscripciones"
-echo "2. Suscribirse a un canal"
+echo "1) Suscripciones"
+echo "2) Suscribirse a un canal"
+echo "3) Eliminar suscripciones"
 read -p "Selecciona una opción: " opcion
 
 case $opcion in
@@ -161,6 +163,21 @@ case $opcion in
     2)
         suscribirse_a_canal
         ;;
+    3)
+	read -p "¿Estás seguro de que quieres eliminar las suscripciones? (s/n): " respuesta
+	if [[ "$respuesta" == "s" || "$respuesta" == "S" ]]; then
+	    if [[ -f "Scripts/suscripciones.txt" ]]; then
+	        rm "Scripts/suscripciones.txt"
+        echo "Archivo eliminado."
+	    else
+        echo "El archivo 'Scripts/suscripciones.txt' no existe."
+	    fi
+	else
+	    echo "Operación cancelada."
+	fi
+	echo "Volviendo.."
+	sleep 2
+	;;
     *)
         echo "Opción no válida"
         ;;
