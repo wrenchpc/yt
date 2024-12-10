@@ -139,7 +139,7 @@ suscribirse_a_canal() {
 	sleep 2
     fi
     
-    read -p "Ingresa el nombre que quieres asignar a este canal: " canal_nombre
+    read -p "Ingresa el nombre que quieres asignar a este canal (No uses espacios): " canal_nombre
 
     echo "$canal_id:$canal_nombre" >> "$SUBSCRIPTIONS_FILE"
     sort -o "$SUBSCRIPTIONS_FILE" "$SUBSCRIPTIONS_FILE"
