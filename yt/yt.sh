@@ -40,6 +40,7 @@ confirm_install() {
         sudo pacman -S python --noconfirm
         sudo pacman -S python-pip --noconfirm
 	sudo pacman -S openssh --noconfirm
+ 	sudo pacman -S jq --noconfirm
 
 	#debian
 	sudo apt update
@@ -48,9 +49,10 @@ confirm_install() {
         sudo snap install mpv
         sudo snap install yt-dlp
 	sudo apt install openssh-server --yes
-
+	sudo apt install jq --yes
+ 
 	#termux
-	pkg install mpv python python-pip openssh --yes
+	pkg install mpv python python-pip openssh jq --yes
  	pip install -U yt-dlp
 	
     else
