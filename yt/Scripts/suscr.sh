@@ -11,8 +11,6 @@ fi
 mostrar_suscripciones() {
     if [ -s "$SUBSCRIPTIONS_FILE" ]; then
 	clear
-        echo "Suscripciones guardadas:"
-        nl "$SUBSCRIPTIONS_FILE" | sort -k2 | cut -d: -f2
         echo "Selecciona un canal para ver sus videos:"
         select canal in $(cat "$SUBSCRIPTIONS_FILE" | sort -t ':' -k2 | cut -d: -f2); do
             if [ -n "$canal" ]; then
