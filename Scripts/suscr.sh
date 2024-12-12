@@ -38,8 +38,7 @@ mostrar_videos() {
     canal_id=$1
     canal_nombre=$2
     echo "Obteniendo videos del canal $canal_nombre (ID: $canal_id)..."
-    
-    # Obtener la lista de videos correctamente
+
     videos=$(yt-dlp --flat-playlist -j "https://www.youtube.com/channel/$canal_id/videos" 2>/dev/null)
 
     if [ -z "$videos" ]; then
@@ -52,7 +51,6 @@ mostrar_videos() {
     video_ids=()
     video_titles=()
 
-    # Procesar y mostrar los primeros 10 videos correctamente
     while IFS= read -r video; do
         video_id=$(echo $video | jq -r '.id')
         titulo=$(echo $video | jq -r '.title')
@@ -144,19 +142,15 @@ suscribirse_a_canal() {
     if [ -z "$canal_id" ]; then
         echo "No se pudo obtener la ID del canal."
         return
-        sleep 2
     fi
-    
+
     read -p "Ingresa el nombre que quieres asignar a este canal (No uses espacios): " canal_nombre
 
     echo "$canal_id:$canal_nombre" >> "$SUBSCRIPTIONS_FILE"
     sort -o "$SUBSCRIPTIONS_FILE" "$SUBSCRIPTIONS_FILE"
     echo "Te has suscrito a: $canal_nombre"
-    echo "Regresando..."
-    sleep 2
 }
 
-# Menú principal
 clear
 echo "Bienvenido al gestor de suscripciones de YouTube"
 echo "1) Suscripciones"
@@ -172,22 +166,13 @@ case $opcion in
         suscribirse_a_canal
         ;;
     3)
-        read -p "¿Estás seguro de que quieres eliminar las suscripciones? (s/n): " respuesta
-        if [[ "$respuesta" == "s" || "$respuesta" == "S" ]]; then
-            if [[ -f "$SUBSCRIPTIONS_FILE" ]]; then
-                rm "$SUBSCRIPTIONS_FILE"
-                echo "Archivo eliminado."
-            else
-                echo "El archivo de suscripciones no existe."
-            fi
-        else
-            echo "Operación cancelada."
+        if [[ -f "$SUBSCRIPTIONS_FILE" ]]; then
+            rm "$SUBSCRIPTIONS_FILE"
+            echo "Archivo eliminado."
         fi
-        echo "Volviendo.."
-        sleep 2
         ;;
     *)
         echo "Opción no válida"
         ;;
 esac
-./yt.sh
+
