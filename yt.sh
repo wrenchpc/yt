@@ -88,7 +88,7 @@ case $option in
 
     2)
         clear
-	sh Scripts/suscr.sh
+	bash Scripts/suscr.sh
         ;;
     3)
         clear
