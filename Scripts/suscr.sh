@@ -2,7 +2,13 @@
 # Creado por wr3nch
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
-SUBSCRIPTIONS_FILE="$SCRIPT_DIR/suscripciones.txt"
+SUBSCRIPTIONS_DIR="$HOME/YT/Suscripciones"
+
+# Crear la carpeta Suscripciones si no existe
+mkdir -p "$SUBSCRIPTIONS_DIR"
+
+# Definir el archivo de suscripciones en la nueva ubicación
+SUBSCRIPTIONS_FILE="$SUBSCRIPTIONS_DIR/suscripciones.txt"
 
 if [ ! -f "$SUBSCRIPTIONS_FILE" ]; then
     touch "$SUBSCRIPTIONS_FILE"
@@ -10,7 +16,7 @@ fi
 
 mostrar_suscripciones() {
     if [ -s "$SUBSCRIPTIONS_FILE" ]; then
-	clear
+        clear
         echo "Selecciona un canal para ver sus videos:"
         select canal in $(cat "$SUBSCRIPTIONS_FILE" | sort -t ':' -k2 | cut -d: -f2); do
             if [ -n "$canal" ]; then
@@ -19,12 +25,12 @@ mostrar_suscripciones() {
                 break
             else
                 echo "Selección no válida"
-		sleep 2
+                sleep 2
             fi
         done
     else
         echo "No tienes suscripciones guardadas."
-	sleep 2
+        sleep 2
     fi
 }
 
@@ -134,7 +140,7 @@ suscribirse_a_canal() {
     if [ -z "$canal_id" ]; then
         echo "No se pudo obtener la ID del canal."
         return
-	sleep 2
+        sleep 2
     fi
     
     read -p "Ingresa el nombre que quieres asignar a este canal (No uses espacios): " canal_nombre
@@ -162,22 +168,23 @@ case $opcion in
         suscribirse_a_canal
         ;;
     3)
-	read -p "¿Estás seguro de que quieres eliminar las suscripciones? (s/n): " respuesta
-	if [[ "$respuesta" == "s" || "$respuesta" == "S" ]]; then
-	    if [[ -f "Scripts/suscripciones.txt" ]]; then
-	        rm "Scripts/suscripciones.txt"
-        echo "Archivo eliminado."
-	    else
-        echo "El archivo 'Scripts/suscripciones.txt' no existe."
-	    fi
-	else
-	    echo "Operación cancelada."
-	fi
-	echo "Volviendo.."
-	sleep 2
-	;;
+        read -p "¿Estás seguro de que quieres eliminar las suscripciones? (s/n): " respuesta
+        if [[ "$respuesta" == "s" || "$respuesta" == "S" ]]; then
+            if [[ -f "$SUBSCRIPTIONS_FILE" ]]; then
+                rm "$SUBSCRIPTIONS_FILE"
+                echo "Archivo eliminado."
+            else
+                echo "El archivo de suscripciones no existe."
+            fi
+        else
+            echo "Operación cancelada."
+        fi
+        echo "Volviendo.."
+        sleep 2
+        ;;
     *)
         echo "Opción no válida"
         ;;
 esac
 ./yt.sh
+
