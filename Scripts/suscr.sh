@@ -38,8 +38,8 @@ mostrar_videos() {
     canal_id=$1
     canal_nombre=$2
     echo "Obteniendo videos del canal $canal_nombre (ID: $canal_id)..."
-
-    videos=$(yt-dlp --flat-playlist -j "https://www.youtube.com/channel/$canal_id/videos" 2>/dev/null)
+    
+    videos=$(yt-dlp -j --flat-playlist "https://www.youtube.com/channel/$canal_id/videos" 2>/dev/null)
 
     if [ -z "$videos" ]; then
         echo "No se pudieron obtener los videos del canal."
@@ -50,19 +50,17 @@ mostrar_videos() {
     i=1
     video_ids=()
     video_titles=()
-
-    while IFS= read -r video; do
-        video_id=$(echo $video | jq -r '.id')
-        titulo=$(echo $video | jq -r '.title')
+    
+    for video in $(echo "$videos" | jq -r '.id'); do
+        titulo=$(yt-dlp --get-title "https://www.youtube.com/watch?v=$video")
         echo "$i. $titulo"
-        video_ids+=("$video_id")
+        video_ids+=("$video")
         video_titles+=("$titulo")
         let i++
-        
         if [ $i -gt 10 ]; then
             break
         fi
-    done <<< "$videos"
+    done
 
     read -p "Selecciona el número del video que quieres ver: " numero_video
     video_id=${video_ids[$((numero_video - 1))]}
@@ -81,7 +79,7 @@ mostrar_videos() {
             ;;
         2)
             echo "Obteniendo las resoluciones disponibles..."
-            resoluciones=$(yt-dlp -F "https://www.youtube.com/watch?v=$video_id")
+            resoluciones=$(yt-dlp -F "https://www.youtube.com/watch?v=$video_id" | grep 'mp4' | awk '{print $1, $2}' )
 
             if [ -z "$resoluciones" ]; then
                 echo "No se encontraron resoluciones disponibles."
@@ -93,25 +91,25 @@ mostrar_videos() {
             resolucion_ids=()
             resolucion_options=()
 
-            while IFS= read -r linea; do
-                formato=$(echo "$linea" | awk '{print $1}')
-                resolucion=$(echo "$linea" | grep -oP '\d+p(\sHDR|\s60fps|)' | head -n 1)
+            while IFS= read -r resolucion; do
+                res_id=$(echo $resolucion | awk '{print $1}')
+                res_format=$(echo $resolucion | awk '{print $2}')
                 
-                if [[ -n "$resolucion" ]]; then
-                    case $resolucion in
-                        2160p*) resolucion="4K (2160p)" ;;
-                        1440p*) resolucion="1440p" ;;
-                        1080p*) resolucion="1080p" ;;
-                        720p*)  resolucion="720p" ;;
-                        480p*)  resolucion="480p" ;;
-                        360p*)  resolucion="360p" ;;
-                        144p*)  resolucion="144p" ;;
+                if [[ $res_format == "mp4" ]]; then
+                    case $res_id in
+                        137) resolution="144p" ;;
+                        160) resolution="360p" ;;
+                        394) resolution="480p" ;;
+                        397) resolution="720p" ;;
+                        398) resolution="1080p" ;;
+                        399) resolution="1440p" ;;
+                        400) resolution="2160p (4K)" ;;
                         *) continue ;;
                     esac
 
-                    echo "$i. $resolucion"
-                    resolucion_ids+=("$formato")
-                    resolucion_options+=("$resolucion")
+                    echo "$i. $resolution ($res_format)"
+                    resolucion_ids+=("$res_id")
+                    resolucion_options+=("$resolution")
                     let i++
                 fi
             done <<< "$resoluciones"
@@ -121,7 +119,7 @@ mostrar_videos() {
                 return
             fi
 
-            read -p "Selecciona la resolución (1-$((i - 1))): " resolucion_numero
+            read -p "Selecciona la resolución (1-$i): " resolucion_numero
             resolucion_id=${resolucion_ids[$((resolucion_numero - 1))]}
             resolucion_option=${resolucion_options[$((resolucion_numero - 1))]}
 
@@ -142,15 +140,19 @@ suscribirse_a_canal() {
     if [ -z "$canal_id" ]; then
         echo "No se pudo obtener la ID del canal."
         return
+        sleep 2
     fi
-
+    
     read -p "Ingresa el nombre que quieres asignar a este canal (No uses espacios): " canal_nombre
 
     echo "$canal_id:$canal_nombre" >> "$SUBSCRIPTIONS_FILE"
     sort -o "$SUBSCRIPTIONS_FILE" "$SUBSCRIPTIONS_FILE"
     echo "Te has suscrito a: $canal_nombre"
+    echo "Regresando..."
+    sleep 2
 }
 
+# Menú principal
 clear
 echo "Bienvenido al gestor de suscripciones de YouTube"
 echo "1) Suscripciones"
@@ -166,13 +168,23 @@ case $opcion in
         suscribirse_a_canal
         ;;
     3)
-        if [[ -f "$SUBSCRIPTIONS_FILE" ]]; then
-            rm "$SUBSCRIPTIONS_FILE"
-            echo "Archivo eliminado."
+        read -p "¿Estás seguro de que quieres eliminar las suscripciones? (s/n): " respuesta
+        if [[ "$respuesta" == "s" || "$respuesta" == "S" ]]; then
+            if [[ -f "$SUBSCRIPTIONS_FILE" ]]; then
+                rm "$SUBSCRIPTIONS_FILE"
+                echo "Archivo eliminado."
+            else
+                echo "El archivo de suscripciones no existe."
+            fi
+        else
+            echo "Operación cancelada."
         fi
+        echo "Volviendo.."
+        sleep 2
         ;;
     *)
         echo "Opción no válida"
         ;;
 esac
+./yt.sh
 
