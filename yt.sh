@@ -3,7 +3,6 @@
 
 clear
 
-
 function banner() {
     clear
     cat << "EOF"
@@ -20,8 +19,16 @@ function banner() {
 
 Presiona "ENTER" para continuar...
 EOF
-    read -p ""
-echo ""   
+    read -n 1 key
+    if [[ "$key" == "M" || "$key" == "m" ]]; then
+        execute_matrix
+    fi
+    echo ""   
+}
+
+function execute_matrix() {
+    bash Scripts/m.sh
+    exit
 }
 
 banner
