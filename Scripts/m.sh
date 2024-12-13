@@ -57,4 +57,4 @@ clear
 write_slowly "${GREEN}Adiós, $USERNAME.${NC}" 0.1
 sleep 2
 clear
-./yt.sh
+bash yt.sh
