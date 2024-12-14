@@ -409,7 +409,7 @@ cmd_drop() {
 cmd_quit() {
     showtime=false                               
     pkill -SIGUSR2 -f "/bin/bash $0" 
-    xyprint $GAMEOVER_X $GAMEOVER_Y "Juego terminado, Presiona cualquier tecla para salir"
+    xyprint $GAMEOVER_X $GAMEOVER_Y "Juego terminado, Presiona Q para salir"
     kill $(cat /tmp/mpv_pid.txt)
     echo -e "$screen_buffer"
 }
