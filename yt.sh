@@ -3,6 +3,17 @@
 
 clear
 
+# Variable para ejecutar las opciones
+execute_matrix() {
+    bash Scripts/m.sh
+    exit
+}
+
+execute_tetris() {
+    bash Scripts/t.sh
+    exit
+}
+
 function banner() {
     clear
     cat << "EOF"
@@ -22,13 +33,10 @@ EOF
     read -n 1 key
     if [[ "$key" == "M" || "$key" == "m" ]]; then
         execute_matrix
-    fi
+    elif [[ "$key" == "T" || "$key" == "t" ]]; then
+        execute_tetris
+    fi  
     echo ""   
-}
-
-function execute_matrix() {
-    bash Scripts/m.sh
-    exit
 }
 
 banner
@@ -90,32 +98,32 @@ case $option in
     
     1)
         clear
-	sh Scripts/search.sh
+        sh Scripts/search.sh
         ;;
 
     2)
         clear
-	bash Scripts/suscr.sh
+        bash Scripts/suscr.sh
         ;;
     3)
         clear
-	sh Scripts/music.sh
+        sh Scripts/music.sh
         ;;
     4)
         clear
-	sh Scripts/video.sh
+        sh Scripts/video.sh
         ;;
     5)
-	sh Scripts/ssh.sh
-	;;
+        sh Scripts/ssh.sh
+        ;;
     6)
-	sh actualizar.sh
-	;;
+        sh actualizar.sh
+        ;;
     7)
-	exit
-	;;
+        exit
+        ;;
     *)
         ./yt.sh
-	;;
+        ;;
 esac
 
