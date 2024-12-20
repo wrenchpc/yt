@@ -2,25 +2,30 @@
 # Hecho por wr3nch
 clear
 
-read -p "Introduce el término de búsqueda: " search_term
+read -p "Introduce un término de búsqueda o URL de YouTube: " search_input
 
-echo "Buscando en YouTube..."
-yt-dlp "ytsearch10:$search_term" --get-title --get-id > results.txt
+# Verificar si el input es una URL de YouTube
+if [[ $search_input =~ ^https?://(www\.)?youtube\.com/watch\?v=.+$ || $search_input =~ ^https?://youtu\.be/.+$ ]]; then
+    # Extraer el ID del video desde la URL
+    video_id=$(echo "$search_input" | sed -E 's/.*(v=|youtu\.be\/)([^&]+).*/\2/')
+else
+    echo "Buscando en YouTube..."
+    yt-dlp "ytsearch10:$search_input" --get-title --get-id > results.txt
 
-echo "Resultados encontrados:"
-awk 'NR % 2 == 1 { printf "%d. %s\n", (NR + 1) / 2, $0 }' results.txt
+    echo "Resultados encontrados:"
+    awk 'NR % 2 == 1 { printf "%d. %s\n", (NR + 1) / 2, $0 }' results.txt
 
-read -p "Selecciona un número (1-10): " choice
+    read -p "Selecciona un número (1-10): " choice
 
-if ! echo "$choice" | grep -Eq '^[1-9]$|^10$'; then
-    echo "Opción invalida. Saliendo..."
+    if ! echo "$choice" | grep -Eq '^[1-9]$|^10$'; then
+        echo "Opción invalida. Saliendo..."
+        rm results.txt
+        exit 1
+    fi
+
+    video_id=$(awk "NR == $((choice * 2)) { print }" results.txt)
     rm results.txt
-    exit 1
 fi
-
-video_id=$(awk "NR == $((choice * 2)) { print }" results.txt)
-
-rm results.txt
 
 echo "Resoluciones disponibles:"
 echo "1. Mejor calidad disponible"
