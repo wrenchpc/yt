@@ -13,9 +13,8 @@ else
     echo ""
 fi
 
-echo "¿Cómo deseas descargar la playlist?"
-echo "1) En Playlist (Playlists nombradas por nombres)"
-read -p "Selecciona una opción (1-2): " option
+echo "1) Descargar Playlist de videos"
+read -p "Selecciona la opción 1: " option
 
 read -p "Introduce el enlace de la Playlist: " search_query
 
