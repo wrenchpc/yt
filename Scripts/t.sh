@@ -1,4 +1,5 @@
 #!/bin/bash
+#tetris
 
 mpv --loop=inf Scripts/tetris.mp3 > /dev/null 2>&1 & echo $! > /tmp/mpv_pid.txt
 
