@@ -72,7 +72,7 @@ hide_cursor() {
     echo -ne "\033[?25l"
 }
 
-# foreground color
+
 set_fg() {
     $no_color && return
     puts "\033[3${1}m"
@@ -140,7 +140,7 @@ help=(
 "h: mostrar ayuda"
 )
 
-help_on=-1 # if this flag is 1 help is shown
+help_on=-1
 
 toggle_help() {
     local i s
@@ -156,13 +156,13 @@ toggle_help() {
 }
 
 piece=(
-"00011011"                         # square piece
-"0212223210111213"                 # line piece
-"0001111201101120"                 # S piece
-"0102101100101121"                 # Z piece
-"01021121101112220111202100101112" # L piece
-"01112122101112200001112102101112" # inverted L piece
-"01111221101112210110112101101112" # T piece
+"00011011"                         
+"0212223210111213"                 
+"0001111201101120"                 
+"0102101100101121"                 
+"01021121101112220111202100101112" 
+"01112122101112200001112102101112" 
+"01111221101112210110112101101112" 
 )
 
 draw_piece() {
@@ -340,11 +340,11 @@ process_complete_lines() {
         }
         ((i >= j)) && continue 
         ((complete_lines++))
-        # move lines down
+        
         for ((i = j - 1; i >= 0; i--)) {
             play_field[$((i + PLAYFIELD_W))]=${play_field[$i]}
         }
-        # mark cells as free
+        
         for ((i = 0; i < PLAYFIELD_W; i++)) {
             play_field[$i]=-1
         }
